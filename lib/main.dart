@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:aktifzeka/screens/blogs/blog_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +15,16 @@ import 'package:aktifzeka/screens/youtube/youtube_page.dart';
 import 'dependency_injection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'constant/constants.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 
 int? isviewed;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding.instance.addPostFrameCallback((timestamp) async {
+    if (Platform.isAndroid) {
+      await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+    }
+  });
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isviewed = prefs.getInt('onBoard');
   DependencyInjection.init();
