@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:aktifzeka/screens/blogs/blog_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +81,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: const TextStyle(color: Colors.blue),
+          style: const TextStyle(
+            color: Colors.blue, 
+            fontFamily: "GoogleSans",
+            fontWeight: FontWeight.bold,
+          ),
         ),
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,

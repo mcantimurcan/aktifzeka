@@ -14,11 +14,20 @@ class _BlogPageState extends State<BlogPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "LocaleKeys.explore_page_title.tr()",
+        leading: Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.blue,
+                )),
+          ),
+        title: const Text(
+          "Blog Oku",
           style: TextStyle(
-            color: Colors.grey.shade800,
-            fontFamily: "Raleway",
+            color: Colors.blue,
+            fontFamily: "GoogleSans",
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -29,9 +38,9 @@ class _BlogPageState extends State<BlogPage> {
             padding: const EdgeInsets.only(right: 15.0),
             child: IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.search,
-                  color: Colors.grey.shade600,
+                  color: Colors.blue,
                 )),
           )
         ],
@@ -41,21 +50,22 @@ class _BlogPageState extends State<BlogPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Divider(
               thickness: 1,
-              color: Colors.grey,
+              color: Colors.blue.shade500,
             ),
           ),
           Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
             child: Text(
-              "LocaleKeys.explore_page_post.tr()",
+              "Bloglar",
               style: const TextStyle(
-                fontFamily: "Raleway",
-                fontWeight: FontWeight.bold,
+                fontFamily: "GoogleSans",
+                fontWeight: FontWeight.normal,
+                fontSize: 17
               ),
             ),
           ),

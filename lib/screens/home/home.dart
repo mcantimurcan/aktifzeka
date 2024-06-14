@@ -1,3 +1,4 @@
+import 'package:aktifzeka/screens/blogs/blog_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aktifzeka/screens/home/screens/pomodoro/pomodoro.dart';
@@ -168,7 +169,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (context) => const BlogPage())),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
