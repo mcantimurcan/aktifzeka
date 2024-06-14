@@ -1,6 +1,8 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:aktifzeka/components/blog_details.dart';
 import 'package:aktifzeka/models/data_model.dart';
+import 'package:http/http.dart' as http;
+import 'package:html/parser.dart' as parser;
 
 class BlogPage extends StatefulWidget {
   const BlogPage({super.key});
@@ -9,7 +11,24 @@ class BlogPage extends StatefulWidget {
 }
 
 class _BlogPageState extends State<BlogPage> {
+  var blogData;
+  var url = Uri.parse("https://aktifzeka.com/blog/");
+
+  Future getData () async {
+    var res = await http.get(url);
+    final body = res.body;
+    final document = parser.parse(body);
+    var response = document.getElementsByClassName("w-grid-list")[0].getElementsByClassName("w-grid-item-h").forEach((element) => print(element.text.toString()));
+  }
+
   final data = dataList;
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +91,9 @@ class _BlogPageState extends State<BlogPage> {
           const SizedBox(
             height: 20.0,
           ),
-          ListView.separated(
+
+          Text(blogData.toString()),
+          /* ListView.separated(
             shrinkWrap: true,
             itemBuilder: (context, index) {
               final post = data[index];
@@ -86,7 +107,7 @@ class _BlogPageState extends State<BlogPage> {
               child: Divider(),
             ),
             itemCount: data.length,
-          )
+          )*/
         ],
       ),
     );
