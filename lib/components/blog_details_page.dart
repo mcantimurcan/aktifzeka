@@ -1,5 +1,7 @@
-import 'package:aktifzeka/models/data_model.dart';
 import 'package:flutter/material.dart';
+import 'package:aktifzeka/models/data_model.dart';
+import 'package:http/http.dart' as http;
+import 'package:html/parser.dart' as parser;
 
 class BlogDetailsPage extends StatefulWidget {
   final DataModel data;
@@ -10,6 +12,22 @@ class BlogDetailsPage extends StatefulWidget {
 }
 
 class _BlogDetailsPageState extends State<BlogDetailsPage> {
+  var blogData;
+
+  Future getData () async {
+    var url = Uri.parse(widget.data.link);
+    var res = await http.get(url);
+    final body = res.body;
+    final document = parser.parse(body);
+    var response = document.getElementsByClassName("w-grid-list")[0].getElementsByClassName("w-grid-item-h").forEach((element) => print(element.text.toString()));
+  }
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +57,8 @@ class _BlogDetailsPageState extends State<BlogDetailsPage> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
                   image: DecorationImage(
-                    image: AssetImage(
-                      widget.data.imageName,
+                    image: MemoryImage(
+                      widget.data.imageLink,
                     ),
                     fit: BoxFit.fitHeight,
                   ),
@@ -56,7 +74,7 @@ class _BlogDetailsPageState extends State<BlogDetailsPage> {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Text(
-                widget.data.context,
+                "widget.data.context",
                 style: const TextStyle(
                     color: Colors.black54,
                     fontSize: 17,

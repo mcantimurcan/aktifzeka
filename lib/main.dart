@@ -1,12 +1,12 @@
 import 'dart:io';
-import 'package:aktifzeka/screens/home/blogs/blog_page.dart';
+import 'package:aktifzeka/screens/home/sections/blogs/blog_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
-import 'package:aktifzeka/screens/bookmark/bookmark.dart';
-import 'package:aktifzeka/screens/documents/documents.dart';
+import 'package:aktifzeka/screens/deneme/deneme_screen.dart';
+import 'package:aktifzeka/screens/kocluk/kocluk_screen.dart';
 import 'package:aktifzeka/screens/home/home.dart';
 import 'package:aktifzeka/screens/login/auth_page.dart';
 import 'package:aktifzeka/screens/onboarding/onboarding_screen.dart';
@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     YoutubePage(),
     const KoclukScreen(),
     const HomePage(),
-    const BookmarkPage(),
+    const DenemeScreen(),
     const BlogPage(),
   ];
 

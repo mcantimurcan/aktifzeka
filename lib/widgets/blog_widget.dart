@@ -1,96 +1,66 @@
-/*import 'package:cached_network_image/cached_network_image.dart';
+import 'package:aktifzeka/components/blog_details_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:aktifzeka/models/data_model.dart';
 
-class PostWidget extends StatelessWidget {
-  String? link;
-  String? catName;
-  PostWidget({this.link, this.catName});
+class BlogWidget extends StatefulWidget {
+  const BlogWidget({
+    super.key,
+    required this.data,
+  });
+
+  final DataModel data;
 
   @override
+  State<BlogWidget> createState() => _BlogWidgetState();
+}
+
+class _BlogWidgetState extends State<BlogWidget> {
+  @override
   Widget build(BuildContext context) {
-    return Neumorphic(
-      margin: EdgeInsets.only(top: 5, bottom: 15),
-      style: NeumorphicStyle(
-        shape: NeumorphicShape.flat,
-        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
-        depth: 8,
-//              lightSource: LightSource.topLeft,
-//                    color: Colors.grey
-      ),
+    return GestureDetector(
+      onTap: (() {
+        Navigator.of(context).push(
+          CupertinoPageRoute(
+            builder: (BuildContext context) {
+              return BlogDetailsPage(
+                data: widget.data,
+              );
+            },
+          ),
+        );
+      }),
       child: Container(
+        margin: const EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 5,
+        ),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              spreadRadius: 2,
+              blurRadius: 2,
+              offset: Offset(2, 2),
+            ),
+          ],
+        ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 200,
-              child: CachedNetworkImage(
-                imageUrl: "lol",
-                progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    Center(
-                        child: CircularProgressIndicator(
-                            value: downloadProgress.progress)),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-                fit: BoxFit.cover,
-              ),
+            Image.memory(
+              widget.data.imageLink,
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "lol",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: 3,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "lol",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12,
-                            color: Colors.grey),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            left: 5, right: 5, top: 3, bottom: 3),
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Text(
-                          catName ?? "ob.category.name",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "lol",
-                    style: TextStyle(
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            Text(widget.data.date),
+            ListTile(
+              title: Text(widget.data.title),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
+            )
           ],
         ),
       ),
     );
   }
-}*/
+}

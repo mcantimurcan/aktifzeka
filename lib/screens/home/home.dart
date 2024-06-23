@@ -1,10 +1,10 @@
-import 'package:aktifzeka/screens/home/blogs/blog_page.dart';
-import 'package:aktifzeka/screens/home/screens/forum/forum.dart';
+import 'package:aktifzeka/screens/home/sections/blogs/blog_page.dart';
+import 'package:aktifzeka/screens/home/sections/forum/forum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:aktifzeka/screens/home/screens/pomodoro/pomodoro.dart';
-import 'package:aktifzeka/screens/home/screens/puan_hesaplama/puan_hesaplama.dart';
-import 'package:aktifzeka/screens/home/screens/yks_geri_sayim/yks_countdown.dart';
+import 'package:aktifzeka/screens/home/sections/pomodoro/pomodoro.dart';
+import 'package:aktifzeka/screens/home/sections/puan_hesaplama/puan_hesaplama.dart';
+import 'package:aktifzeka/screens/home/sections/yks_geri_sayim/yks_countdown.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
                 onTap: () => Navigator.push(
                     context,
                     CupertinoPageRoute(
-                        builder: (context) => YKSCountdownPage(deadline: DateTime.parse('2025-06-21 10:15:04Z'),))),
+                        builder: (context) => YKSCountdownPage(deadline: DateTime.parse('2025-06-21 10:15').toLocal(),))),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
