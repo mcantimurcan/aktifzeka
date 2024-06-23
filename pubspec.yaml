@@ -45,10 +45,10 @@ dependencies:
   lottie: ^2.6.0
   image_picker: ^1.0.2
   flutter_inappwebview: ^6.0.0
-  google_fonts: ^6.2.1
+  google_fonts: ^4.0.4
   font_awesome_flutter: ^10.7.0
   flutter_windowmanager: ^0.2.0
-  http: ^1.2.1
+  http: ^0.13.0
   html: ^0.15.4
 
 dev_dependencies:

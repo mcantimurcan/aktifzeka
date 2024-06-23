@@ -1,4 +1,5 @@
-import 'package:aktifzeka/screens/blogs/blog_page.dart';
+import 'package:aktifzeka/screens/home/blogs/blog_page.dart';
+import 'package:aktifzeka/screens/home/screens/forum/forum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aktifzeka/screens/home/screens/pomodoro/pomodoro.dart';
@@ -102,7 +103,7 @@ class HomePage extends StatelessWidget {
                 onTap: () => Navigator.push(
                     context,
                     CupertinoPageRoute(
-                        builder: (context) => const YKSCountdownPage())),
+                        builder: (context) => YKSCountdownPage(deadline: DateTime.parse('2025-06-21 10:15:04Z'),))),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
@@ -133,7 +134,7 @@ class HomePage extends StatelessWidget {
                 width: width * 0.05,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (context) => ForumScreen())),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),

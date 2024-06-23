@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class PuanPage extends StatefulWidget {
-  const PuanPage({super.key});
+class ForumScreen extends StatefulWidget {
+  const ForumScreen({super.key});
 
   @override
-  State<PuanPage> createState() => _PuanPageState();
+  State<ForumScreen> createState() => _ForumScreenState();
 }
 
-class _PuanPageState extends State<PuanPage> {
+class _ForumScreenState extends State<ForumScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _PuanPageState extends State<PuanPage> {
           ),
         ),
         title: const Text(
-          "YKS Puan Hesaplama",
+          "YKS Forum",
           style: TextStyle(
             color: Colors.blue,
             fontFamily: "GoogleSans",

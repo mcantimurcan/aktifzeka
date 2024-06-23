@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:aktifzeka/screens/blogs/blog_page.dart';
+import 'package:aktifzeka/screens/home/blogs/blog_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

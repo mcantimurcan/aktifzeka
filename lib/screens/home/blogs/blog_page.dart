@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aktifzeka/components/blog_details.dart';
 import 'package:aktifzeka/models/data_model.dart';
+import 'package:aktifzeka/widgets/blog_widget.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as parser;
 
@@ -51,7 +52,6 @@ class _BlogPageState extends State<BlogPage> {
           ),
         ),
         elevation: 0,
-        backgroundColor: Colors.transparent,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
@@ -64,7 +64,6 @@ class _BlogPageState extends State<BlogPage> {
           )
         ],
       ),
-      backgroundColor: Colors.grey[100],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
