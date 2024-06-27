@@ -39,7 +39,7 @@ class _BlogPageState extends State<BlogPage> {
 
       DataModel newValue = DataModel(
         title: element.children[1].children[1].text,
-        imageLink: bytes,
+        imageLink: imgSrc,
         date: element.children[1].children[0].children[1].text,
         link: element.children[1].children[1].children[0].attributes['href']!,
       );
@@ -90,47 +90,37 @@ class _BlogPageState extends State<BlogPage> {
           )
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
-            child: Divider(
-              thickness: 1,
-              color: Colors.blue.shade500,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 10.0,
             ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            child: Text(
-              "Bloglar",
-              style: const TextStyle(
-                  fontFamily: "GoogleSans",
-                  fontWeight: FontWeight.normal,
-                  fontSize: 17),
+            ListView.separated(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                final post = blogs[index];
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: BlogWidget(data: post),
+                );
+              },
+              separatorBuilder: (context, index) => const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: Divider(
+                  color: Color.fromARGB(255, 153, 153, 153),
+                ),
+              ),
+              itemCount: blogs.length,
             ),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          ListView.separated(
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              final post = blogs[index];
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: BlogWidget(data: post),
-              );
-            },
-            separatorBuilder: (context, index) => const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Divider(color: Color.fromARGB(255, 153, 153, 153),),
+            const SizedBox(
+              height: 20.0,
             ),
-            itemCount: blogs.length,
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

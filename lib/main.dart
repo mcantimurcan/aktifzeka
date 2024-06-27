@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:aktifzeka/screens/hesap/hesap.dart';
 import 'package:aktifzeka/screens/home/sections/blogs/blog_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
     const KoclukScreen(),
     const HomePage(),
     const DenemeScreen(),
-    const BlogPage(),
+    const HesapScreen(),
   ];
 
   void _handleIndexChanged(int i) {
@@ -78,31 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: const TextStyle(
-            color: Colors.blue, 
-            fontFamily: "GoogleSans",
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: IconButton(
-              icon: const Icon(
-                Icons.person,
-                color: Colors.blue,
-              ),
-              onPressed: () => Navigator.push(context,
-                  CupertinoPageRoute(builder: (context) => const AuthPage())),
-            ),
-          ),
-        ],
-      ),
       body: body[_currentIndex],
       extendBody: true,
       bottomNavigationBar: MoltenBottomNavigationBar(
@@ -129,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
             selectedColor: Colors.blue,
           ),
           MoltenTab(
-            icon: const Icon(Icons.star),
+            icon: const Icon(Icons.person),
             selectedColor: Colors.blue,
           ),
         ],

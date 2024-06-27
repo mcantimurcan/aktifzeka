@@ -57,7 +57,7 @@ class _BlogDetailsPageState extends State<BlogDetailsPage> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
                   image: DecorationImage(
-                    image: MemoryImage(
+                    image: NetworkImage(
                       widget.data.imageLink,
                     ),
                     fit: BoxFit.fitHeight,

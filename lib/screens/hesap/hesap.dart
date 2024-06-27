@@ -1,17 +1,17 @@
 import "package:flutter/material.dart";
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-class KoclukScreen extends StatefulWidget {
-  const KoclukScreen({super.key});
+class HesapScreen extends StatefulWidget {
+  const HesapScreen({super.key});
   @override
-  State<KoclukScreen> createState() => _KoclukScreenState();
+  State<HesapScreen> createState() => _HesapScreenState();
 }
 
-class _KoclukScreenState extends State<KoclukScreen> {
+class _HesapScreenState extends State<HesapScreen> {
   InAppWebViewController? webViewController;
   PullToRefreshController? refreshController;
   late var url;
-  var initialURL = "https://aktifzeka.com/hizmetler";
+  var initialURL = "https://aktifzeka.com/hesabim/hesabi-duzenle/";
   double progress = 0;
   var urlController = TextEditingController();
 

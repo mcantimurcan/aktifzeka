@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 class DataModel {
   final String title;
-  final Uint8List imageLink;
+  final String imageLink;
   final String date;
   final String link;
 

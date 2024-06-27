@@ -1,5 +1,6 @@
 import 'package:aktifzeka/screens/home/sections/blogs/blog_page.dart';
 import 'package:aktifzeka/screens/home/sections/forum/forum.dart';
+import 'package:aktifzeka/screens/home/sections/makale/makale_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aktifzeka/screens/home/sections/pomodoro/pomodoro.dart';
@@ -15,6 +16,18 @@ class HomePage extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Aktif Zeka",
+          style: const TextStyle(
+            color: Colors.blue, 
+            fontFamily: "GoogleSans",
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        elevation: 0,
+      ),
       body: ListView(
         children: [
           const SizedBox(
@@ -201,7 +214,7 @@ class HomePage extends StatelessWidget {
                 width: width * 0.05,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () => Navigator.push(context, CupertinoPageRoute(builder: (context) => const MakalePage())),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),

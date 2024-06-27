@@ -50,7 +50,7 @@ class _BlogWidgetState extends State<BlogWidget> {
         ),
         child: Column(
           children: [
-            Image.memory(
+            Image.network(
               widget.data.imageLink,
             ),
             Text(widget.data.date),
